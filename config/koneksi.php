@@ -6,9 +6,9 @@ $dbname = 'nzrfzr_notes';
 
 $conn = mysqli_connect($host, $user, $pass, $dbname);
 
-$sql = "SELECT id FROM konten";
-$result = $conn->query($sql);
-$jumlah_konten = $result->num_rows;
+$sequel = "SELECT id FROM konten";
+$hasil = $conn->query($sequel);
+$jumlah_konten = $hasil->num_rows;
 $kosong = True;
 
 if ($jumlah_konten > 0) {

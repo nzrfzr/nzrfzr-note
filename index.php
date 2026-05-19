@@ -7,8 +7,12 @@ require_once 'config/koneksi.php';
 if(!isset($_SESSION['username'])) {
     header("Location: login.php");
 }
+$sql = "SELECT * FROM konten";
+$result = mysqli_query($conn, $sql);
+
+
 ?>
-<body class="bg-white text-stone-900 min-h-screen bg-zinc-100">
+<body class=" text-stone-900 min-h-screen bg-zinc-100">
 <?php include 'navbar.php'; ?>
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 gap-4">
         <div class=" flex items-center justify-between h-14 my-2">
@@ -42,7 +46,25 @@ if(!isset($_SESSION['username'])) {
                 </div>
             </div>
         <?php else: ?>
-            
+            <?php while($row = mysqli_fetch_assoc($result)): ?>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                <div class="bg-white rounded-xl border gap-5 border-stone-200 p-5 flex flex-col items-center hover:border-amber-500 transition-all">
+                    <div class="flex flex-col gap-2 w-full">
+                        <p class="text-md text-stone-800 font-semibold"><?php echo $row['judul']; ?></p>
+                        <p class="text-sm text-stone-500 line-clamp-4"><?php echo $row['konten']; ?></p>
+                    </div>
+                    <div class="flex justify-between items-center w-full border-t border-stone-200 pt-3">
+                        <div class="flex flex-col gap-1">
+                            <p class="text-xs text-stone-500"><?php echo $row['diubah_pada']; ?> </p>
+                        </div>
+                        <div class="flex items-center justify-center gap-2">
+                            <a href="edit.php?id=<?php echo $row['id']; ?>" class="text-xs border border-stone-400 text-stone-500 rounded-lg px-3 py-1 hover:border-stone-900 hover:text-stone-900 transition-colors">Edit</a>
+                            <a href="delete.php?id=<?php echo $row['id']; ?>" class="text-xs border border-red-500 text-red-500 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white transition-colors">Hapus</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php endwhile; ?>
         <?php endif; ?>
     </main>
 </body>

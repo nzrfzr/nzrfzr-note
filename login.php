@@ -46,7 +46,7 @@ if(isset($_POST['submit'])) {
         $_SESSION['username'] = $username;
         header("Location: index.php");
     } else {
-        echo "<div class='border border-red-500 rounded-xl text-red-500 px-4 py-2 rounded-xl'>Username atau password salah!</div>";
+        echo "<div class='border border-red-500 rounded-xl text-red-500 px-4 py-2'>Username atau password salah!</div>";
     }
 
 }
