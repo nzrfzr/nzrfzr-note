@@ -1,8 +1,8 @@
 <?php // navbar.php — navigasi atas, di-include setelah layout.php ?>
 <nav class="bg-white border-b border-stone-200 sticky top-0 z-40">
-  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 flex items-center justify-between h-14 ">
     <a href="index.php" class="text-lg font-semibold tracking-tight flex items-center gap-2">
-      <span class="text-stone-800">Nzrfzr Note</span>
+      <span class="text-stone-800 font-bold">Nzrfzr Note</span>
     </a>
     <div class="flex items-center gap-4">
       <span class="text-sm text-stone-500 hidden sm:block">
