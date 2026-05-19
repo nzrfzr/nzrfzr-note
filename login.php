@@ -39,7 +39,6 @@ $password_benar = "12345";
 
 <?php
 
-// Username & password contoh
 if(isset($_POST['submit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
