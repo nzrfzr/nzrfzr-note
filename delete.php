@@ -3,7 +3,7 @@ include './config/koneksi.php';
 
 $id = $_GET['id'];
 
-$query = "DELETE FROM content WHERE id_nota = $id";
+$query = "DELETE FROM konten WHERE id = $id";
 mysqli_query($conn, $query);
 
 header("Location: index.php");
