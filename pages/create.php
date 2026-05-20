@@ -25,7 +25,7 @@ if(!isset($_SESSION['username'])) {
                 <div class="flex flex-col gap-4">
                     <div class="flex flex-col gap-2">
                         <label for="judul" class="text-sm text-stone-500 font-semibold">Judul</label>
-                        <input type="text" id="judul" name="judul" class="border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Masukkan judul">
+                        <input type="text" maxlength="60" id="judul" name="judul" class="border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Masukkan judul">
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="konten" class="text-sm text-stone-500 font-semibold">Konten</label>
