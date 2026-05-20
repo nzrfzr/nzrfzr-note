@@ -2,7 +2,7 @@
 session_start();
 
 $username_benar = "admin";
-$password_benar = "12345";
+$password_benar = "admin123";
 ?>
 
 <link href="./src/output.css" rel="stylesheet">

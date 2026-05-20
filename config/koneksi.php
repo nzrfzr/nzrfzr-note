@@ -15,4 +15,3 @@ if ($jumlah_konten > 0) {
     $kosong = false;
 };
 ?>
-
