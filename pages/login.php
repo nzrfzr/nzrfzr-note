@@ -5,7 +5,7 @@ $username_benar = "admin";
 $password_benar = "admin123";
 ?>
 
-<link href="./src/output.css" rel="stylesheet">
+<link href="../src/output.css" rel="stylesheet">
 
 <body class="flex justify-center items-center flex-col gap-4 h-full bg-zinc-100">
     <div>
@@ -44,7 +44,7 @@ if(isset($_POST['submit'])) {
     $password = $_POST['password'];
     if ($username == $username_benar && $password == $password_benar) {
         $_SESSION['username'] = $username;
-        header("Location: index.php");
+        header("Location: ../index.php");
     } else {
         echo "<div class='border border-red-500 rounded-xl text-red-500 px-4 py-2'>Username atau password salah!</div>";
     }

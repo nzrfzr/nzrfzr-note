@@ -5,7 +5,7 @@
 session_start();
 require_once 'config/koneksi.php';
 if(!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ./pages/login.php");
 }
 $sql = "SELECT * FROM konten";
 $result = mysqli_query($conn, $sql);
@@ -13,14 +13,14 @@ $jumlah_konten = mysqli_num_rows($result);
 $kosong = ($jumlah_konten == 0);
 ?>
 <body class=" text-stone-900 min-h-screen bg-zinc-100">
-<?php include 'navbar.php'; ?>
+<?php include './includes/navbar.php'; ?>
     <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 gap-4">
         <div class="flex items-center justify-between h-14 my-2">
             <div>
                 <h2 class="text-2xl font-bold text-stone-900">Semua Catatan</h2>
                 <p class="text-xs text-stone-400 mt-0.5"><?= $jumlah_konten ?> catatan tersimpan</p>
             </div>
-            <a href="create.php"
+            <a href="./pages/create.php"
             class="inline-flex items-center gap-2 bg-stone-900 hover:bg-amber-500 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
@@ -36,7 +36,7 @@ $kosong = ($jumlah_konten == 0);
                         <p class="text-md text-stone-800 font-semibold">Belum ada catatan</p>
                         <p class="text-sm text-stone-500">Yuk buat catatan pertamamu!</p>
                     </div>
-                    <a href="create.php"
+                    <a href="./pages/create.php"
                         class="inline-flex items-center gap-2 bg-stone-900 hover:bg-amber-500 text-white text-sm font-semibold px-4 py-2.5 rounded-xl transition-colors">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15"/>
@@ -58,8 +58,8 @@ $kosong = ($jumlah_konten == 0);
                                 <p class="text-xs text-stone-500"><?php echo $row['diubah_pada']; ?> </p>
                             </div>
                             <div class="flex items-center justify-center gap-2">
-                                <a href="edit.php?id=<?php echo $row['id']; ?>" class="text-xs border border-stone-400 text-stone-500 rounded-lg px-3 py-1 hover:border-stone-900 hover:text-stone-900 transition-colors">Edit</a>
-                                <a href="delete.php?id=<?php echo $row['id']; ?>" class="text-xs border border-red-500 text-red-500 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white transition-colors">Hapus</a>
+                                <a href="./pages/edit.php?id=<?php echo $row['id']; ?>" class="text-xs border border-stone-400 text-stone-500 rounded-lg px-3 py-1 hover:border-stone-900 hover:text-stone-900 transition-colors">Edit</a>
+                                <a href="./function/delete.php?id=<?php echo $row['id']; ?>" class="text-xs border border-red-500 text-red-500 rounded-lg px-3 py-1 hover:bg-red-500 hover:text-white transition-colors">Hapus</a>
                             </div>
                         </div>
                     </div>
