@@ -9,8 +9,8 @@ if(!isset($_SESSION['username'])) {
 }
 $sql = "SELECT * FROM konten";
 $result = mysqli_query($conn, $sql);
-
-
+$jumlah_konten = mysqli_num_rows($result);
+$kosong = ($jumlah_konten == 0);
 ?>
 <body class=" text-stone-900 min-h-screen bg-zinc-100">
 <?php include 'navbar.php'; ?>
@@ -48,7 +48,7 @@ $result = mysqli_query($conn, $sql);
         <?php else: ?>
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                 <?php while($row = mysqli_fetch_assoc($result)): ?>
-                    <div class="bg-white rounded-xl w-80 border gap-5 border-stone-200 p-5 flex flex-col items-center justify-between hover:border-amber-500 transition-all">
+                    <div class="bg-white rounded-xl w-full border gap-5 border-stone-200 p-5 flex flex-col items-center justify-between hover:border-amber-500 transition-all">
                         <div class="flex flex-col gap-2 w-full">
                             <p class="text-md text-stone-800 font-semibold line-clamp-1"><?php echo $row['judul']; ?></p>
                             <p class="text-sm text-stone-500 line-clamp-4"><?php echo $row['konten']; ?></p>
