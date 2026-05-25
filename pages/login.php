@@ -37,7 +37,10 @@ $password_benar = "admin123";
                 <input class="bg-zinc-950 hover:bg-amber-400 transition-all text-white px-4 py-2 rounded-xl" name="submit" type="submit" value="Masuk">
             </form>
     </div>
-
+    <div class="flex flex-col gap-2">
+        <p class="text-xs text-stone-500">Username: admin</p>
+        <p class="text-xs text-stone-500">Password: admin123</p>
+    </div>
 </body>
 
 
