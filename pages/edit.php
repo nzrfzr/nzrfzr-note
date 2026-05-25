@@ -33,7 +33,7 @@ $data = mysqli_fetch_assoc($result);
                     </div>
                     <div class="flex flex-col gap-2">
                         <label for="konten" class="text-sm text-stone-500 font-semibold">Konten</label>
-                        <textarea id="konten" name="konten" rows="12" class="border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Masukkan konten"><?= $data['konten'] ?></textarea>
+                        <textarea id="konten" name="konten" rows="12" class="border border-stone-200 rounded-lg px-3 py-2 text-sm text-stone-900 focus:outline-none focus:border-amber-500 transition-colors" placeholder="Masukkan konten"><?= $data['konten']?></textarea>
                     </div>
                     <div class="flex justify-end gap-2">
                         <a href="../index.php" class="text-sm border border-stone-400 text-stone-500 rounded-lg px-3 py-2 hover:border-stone-900 hover:text-stone-900 transition-colors">Batal</a>
