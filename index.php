@@ -5,12 +5,15 @@
 session_start();
 require_once 'config/koneksi.php';
 if(!isset($_SESSION['username'])) {
-    header("Location: ./pages/login.php");
+    header("Location: ./pages/login.php");exit;
 }
-$sql = "SELECT * FROM konten";
+
+$user_id=$_SESSION['id_user'];
+$sql = "SELECT * FROM konten WHERE id_user = '" . $_SESSION['id_user'] . "'";
 $result = mysqli_query($conn, $sql);
 $jumlah_konten = mysqli_num_rows($result);
 $kosong = ($jumlah_konten == 0);
+
 ?>
 <body class=" text-stone-900 min-h-screen bg-zinc-100">
 <?php include './includes/navbar.php'; ?>

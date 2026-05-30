@@ -1,8 +1,6 @@
 <?php
+include '../config/koneksi.php';
 session_start();
-
-$username_benar = "admin";
-$password_benar = "admin123";
 ?>
 
 <link href="../src/output.css" rel="stylesheet">
@@ -45,12 +43,17 @@ $password_benar = "admin123";
 
 
 <?php
-
 if(isset($_POST['submit'])) {
+    
     $username = $_POST['username'];
     $password = $_POST['password'];
-    if ($username == $username_benar && $password == $password_benar) {
-        $_SESSION['username'] = $username;
+
+    $q = mysqli_query($conn, "SELECT * FROM users WHERE username='$username'");
+    $user = mysqli_fetch_assoc($q);
+
+    if($user && password_verify($password, $user['password'])){
+       $_SESSION['id_user'] = $user['id_user'];
+       $_SESSION['username'] = $user['username'];
         header("Location: ../index.php");
     } else {
         echo "<div class='border border-red-500 rounded-xl text-red-500 px-4 py-2'>Username atau password salah!</div>";

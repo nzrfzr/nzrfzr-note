@@ -5,9 +5,8 @@
 session_start();
 require_once '../config/koneksi.php';
 if(!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../pages/login.php");exit;
 }
-
 $id = $_GET['id'];
 $result = mysqli_query($conn, "SELECT * FROM konten WHERE id=$id");
 $data = mysqli_fetch_assoc($result);
@@ -47,10 +46,11 @@ $data = mysqli_fetch_assoc($result);
 
 <?php 
 if(isset($_POST['submit'])) {
-    $judul = $_POST['judul'];
-    $konten = $_POST['konten'];
+    $id_user = $_SESSION['id_user'];
+    $judul = mysqli_real_escape_string($conn, $_POST['judul']);
+    $konten = mysqli_real_escape_string($conn, $_POST['konten']);
 
-    $sql = "UPDATE konten SET judul='$judul', konten='$konten' WHERE id=$id";
+    $sql = "UPDATE konten SET id_user='$id_user', judul='$judul', konten='$konten' WHERE id=$id";
     $result = mysqli_query($conn, $sql);
 
     if($result) {

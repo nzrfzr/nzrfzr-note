@@ -5,7 +5,7 @@
 session_start();
 require_once '../config/koneksi.php';
 if(!isset($_SESSION['username'])) {
-    header("Location: login.php");
+    header("Location: ../pages/login.php");
 }
 ?>
 
@@ -43,10 +43,11 @@ if(!isset($_SESSION['username'])) {
 
 <?php
     if(isset($_POST['submit'])) {
-        $judul = $_POST['judul'];
-        $konten = $_POST['konten'];
+        $id_user = $_SESSION['id_user'];
+        $judul = mysqli_real_escape_string($conn, $_POST['judul']);
+        $konten = mysqli_real_escape_string($conn, $_POST['konten']);
 
-        $sql = "INSERT INTO konten (judul, konten) VALUES ('$judul', '$konten')";
+        $sql = "INSERT INTO konten (id_user, judul, konten) VALUES ('$id_user','$judul', '$konten')";
         $result = mysqli_query($conn, $sql);
 
         if($result) {
